@@ -1,4 +1,4 @@
-# jamie-office-choice
+# Jamie Office Choice
 
 Functionality:
 
