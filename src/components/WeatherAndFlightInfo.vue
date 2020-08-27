@@ -64,6 +64,7 @@ export default {
     citySelectionDivShown: false,
     citySelectionText: 'You have selected to travel to : ',
     chosenCity: '',
+    alert: true,
     submitButtonText: 'Check for an available flight ',
     cities: [
       {
@@ -120,7 +121,7 @@ export default {
             this.sourcecity
           );
           this.cities[index].flights = flightsRes.data;
-          this.cities[index].flights["currency"] = flightsRes.currency;
+          this.cities[index].flights[0].currency = flightsRes.currency;
           this.cities[index]["error"] = false;
           this.sourcecity = '';
         } else {

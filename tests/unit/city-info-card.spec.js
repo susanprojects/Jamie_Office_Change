@@ -69,9 +69,9 @@ describe("CityInfoCard.vue", () => {
                         availability:
                             {
                                 seats: 7
-                            }
+                            },
+                        currency: 'EUR',
                     }],
-                    currency: 'EUR',
                   }
               }
         });
@@ -80,6 +80,7 @@ describe("CityInfoCard.vue", () => {
     it('renders cityinfo card', async () => {
         await Vue.nextTick();
         expect(wrapper.exists()).toBe(true);
+        expect(wrapper.html()).toMatchSnapshot();
     });
     it('should display temperature details', async () => {
         await Vue.nextTick();

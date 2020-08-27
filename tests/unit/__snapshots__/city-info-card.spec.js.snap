@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityInfoCard.vue renders cityinfo card 1`] = `
+<v-card class="mx-auto">
+  <v-img height="200px" src="Amsterdam.jpg" class="white--text align-end">
+    <v-card-title>Amsterdam</v-card-title>
+  </v-img>
+  <v-card-subtitle class="pb-0">Netherlands</v-card-subtitle>
+  <v-card-text class="text--primary">
+    <v-row align="center">
+      <v-col id="minimum-temperature"><i class="fas fa-thermometer-empty temp-font"></i>
+        Min: 21.1°
+      </v-col>
+      <v-col id="maximum-temperature"><i class="fas fa-thermometer-full temp-font"></i>
+        Max: 32.2°
+      </v-col>
+    </v-row>
+    <v-row align="center">
+      <v-col>
+        <v-tabs icons-and-text="">
+          <v-tab>
+            Day
+            <v-icon>wb_sunny</v-icon>
+          </v-tab>
+          <v-tab>
+            Night
+            <v-icon>nights_stay</v-icon>
+          </v-tab>
+          <v-tab>
+            Flight
+            <v-icon>airplanemode_active</v-icon>
+          </v-tab>
+          <v-tabs-items>
+            <v-tab-item>
+              <!---->
+              <div>
+                <v-row>
+                  <v-col cols="6">
+                    <v-img id="weather-day-con" src="/accuweathericons/6-s.png"></v-img>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-icon>toys</v-icon> <label id="weather-day-wind-speed">Wind : 18.8 </label>
+                    <hr>
+                    <v-icon>invert_colors</v-icon> <label id="weather-day-rain-speed">Rain : 23.1/ </label>
+                    <hr>
+                    <v-icon>ac_unit</v-icon> <label id="weather-day-snow">Snow : 10.1/ </label>
+                    <hr>
+                  </v-col>
+                </v-row>
+              </div>
+              <v-row>
+                <v-col>
+                  <h2></h2> <span></span>
+                </v-col>
+              </v-row>
+            </v-tab-item>
+            <v-tab-item>
+              <!---->
+              <div>
+                <v-row>
+                  <v-col cols="6">
+                    <v-img src="/accuweathericons/6-s.png"></v-img>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-icon>toys</v-icon> <label id="weather-night-wind-speed">Wind : 15 </label>
+                    <hr>
+                    <v-icon>invert_colors</v-icon> <label id="weather-night-rain-speed">Rain : 56/ </label>
+                    <hr>
+                    <v-icon>ac_unit</v-icon> <label id="weather-night-snow">Snow : 10.2/ </label>
+                    <hr>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <h2></h2> <span></span>
+                  </v-col>
+                </v-row>
+              </div>
+            </v-tab-item>
+            <v-tab-item>
+              <!---->
+              <div>
+                <v-row>
+                  <v-col cols="4">
+                    <v-icon>airplanemode_active</v-icon>
+                  </v-col>
+                  <v-col cols="8"><label id="flight-source-destination">India - Amsterdam</label>
+                    <hr> <label id="flight-price">Price : EUR 490</label>
+                    <hr> <label id="flight-distance">Distance : 6584.75</label>
+                    <hr> <label id="flight-duration">Duration : 43h 20m</label>
+                    <hr> <label id="flight-stops">Stops : 0</label>
+                    <hr> <label id="flight-seats">Seats available : 7</label>
+                    <hr>
+                  </v-col>
+                </v-row>
+              </div>
+            </v-tab-item>
+            <v-row>
+              <v-btn type="submit" color="warning">
+                Select
+              </v-btn>
+            </v-row>
+          </v-tabs-items>
+        </v-tabs>
+      </v-col>
+    </v-row>
+  </v-card-text>
+</v-card>
+`;

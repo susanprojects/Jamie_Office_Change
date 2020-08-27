@@ -1,4 +1,4 @@
-<template><div>
+<template>
   <v-card class="mx-auto">
     <v-img class="white--text align-end" 
       height="200px" 
@@ -143,7 +143,7 @@
                     <v-col cols="8">
                       <label id="flight-source-destination">{{flight.cityFrom}} - {{flight.cityTo}}</label>
                       <hr />
-                      <label id="flight-price">Price : {{cityData.flights.currency}} {{flight.price}}</label>
+                      <label id="flight-price">Price : {{flight.currency}} {{flight.price}}</label>
                       <hr />
                       <label id="flight-distance">Distance : {{flight.distance}}</label>
                       <hr />
@@ -151,7 +151,7 @@
                       <hr />
                       <label id="flight-stops">Stops : {{flight.technical_stops}}</label>
                       <hr />
-                      <label id="flight-seats">Seats available: {{flight.availability.seats}}</label>
+                      <label id="flight-seats">Seats available : {{flight.availability.seats}}</label>
                       <hr />
                     </v-col>
                   </v-row>
@@ -182,7 +182,6 @@
       </v-row>
     </v-card-text>
   </v-card>
-  </div>
 </template>
 
 <script>

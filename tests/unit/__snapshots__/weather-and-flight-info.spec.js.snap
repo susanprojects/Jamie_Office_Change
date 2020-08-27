@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherAndFlightInfo.vue renders 1`] = `
+<v-container sourcecity="" destinationcity="" errors="" chosencity="" alert="true">
+  <v-row>
+    <v-col>
+      <v-text-field label="Where are you flying from? (Enter airport code)" required=""></v-text-field>
+      <!---->
+      <v-btn type="submit" color="warning" dark="">
+        Check for an available flight
+      </v-btn>
+    </v-col>
+  </v-row>
+  <v-row>
+    <v-col cols="4">
+      <city-info-card-stub citydata="[object Object]"></city-info-card-stub>
+    </v-col>
+    <v-col cols="4">
+      <city-info-card-stub citydata="[object Object]"></city-info-card-stub>
+    </v-col>
+    <v-col cols="4">
+      <city-info-card-stub citydata="[object Object]"></city-info-card-stub>
+    </v-col>
+  </v-row>
+  <div>
+    <!---->
+  </div>
+</v-container>
+`;
