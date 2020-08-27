@@ -2,7 +2,7 @@
 
 export default {
     async checkFlights(airportCode, sourcecity) {
-        sourcecity = sourcecity ? sourcecity : '';
+        sourcecity = sourcecity ? sourcecity.toUpperCase() : '';
         let destinationcity = airportCode ? airportCode : '';
         let one_for_city = 1;
         let partner = 'picky';

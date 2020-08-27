@@ -13,13 +13,13 @@ export default {
         );
 
         if(res.data.length==0){
-            return null;
+          return null;
         }
 
         if(res.data.length>1){
             res.data.sort((a,b)=>{a.Rank-b.Rank});
         }
-        return  res.data[0].Key;
+        return res.data[0].Key;
     },
 
     // This function checks if location key is present and and fetches the weather forecast for every city
@@ -29,11 +29,11 @@ export default {
         if(locationKeyIsPresent){
           const locationKey = await this.getLocationByCityAndCountry(city, countryCode);
           const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}`,{
-              params:{
-                  apikey: "jUOlMlgvV3hMhPO8ew8adB8dwyR8sT0m",
-                  metric: true,
-                  details: true
-              }
+            params:{
+                apikey: "jUOlMlgvV3hMhPO8ew8adB8dwyR8sT0m",
+                metric: true,
+                details: true
+            }
           });
           const forecast =  res.data.DailyForecasts[0];
           return forecast;

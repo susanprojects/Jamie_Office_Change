@@ -6,19 +6,44 @@
             v-model="sourcecity"
             label="Where are you flying from? (Enter airport code)"
             required
-          ></v-text-field>
-          <p v-if="errors">
-            <label>Please correct the following error :</label>
-            <label>{{ errors }}</label>
-          </p>
-        <v-btn type="submit" color="warning" @click="fetchFlightDetails()" dark>Submit</v-btn>
+        ></v-text-field>
+        <p v-if="errors">
+          <label>{{errorLabel}}</label>
+          <label>{{ errors }}</label>
+        </p>
+        <v-btn 
+          type="submit" 
+          color="warning" 
+          @click="fetchFlightDetails()" 
+          dark
+          >
+          {{submitButtonText}}
+          </v-btn>
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="4" v-for="item in cities" v-bind:key="item.city">
-        <city-info-card :cityData="item" />
+      <v-col 
+        cols="4" 
+        v-for="item in cities" 
+        v-bind:key="item.city"
+        >
+        <city-info-card 
+          :cityData="item" 
+          v-on:choose-city="chooseTheCity"/>
       </v-col>
     </v-row>
+    <div>
+      <v-alert 
+        type="success"
+        v-model="alert"
+        class="selected-city"
+        v-if="citySelectionDivShown"
+        close-text="Close Alert"
+        dismissible
+        >
+        {{citySelectionText}}<strong>{{chosenCity}}</strong>
+      </v-alert>
+    </div>
   </v-container>
 </template>
 
@@ -34,9 +59,12 @@ export default {
   data: () => ({
     sourcecity: '',
     destinationcity: '',
-    textFieldModelValue: '',
-    modal: false,
     errors: '',
+    errorLabel: 'Please correct the following error :',
+    citySelectionDivShown: false,
+    citySelectionText: 'You have selected to travel to : ',
+    chosenCity: '',
+    submitButtonText: 'Check for an available flight ',
     cities: [
       {
         city: "Amsterdam",
@@ -69,32 +97,50 @@ export default {
     this.fetchWeatherDetails();
   },
   methods: {
-    async fetchWeatherDetails() {
+    fetchWeatherDetails() {
       this.cities.forEach(async (item, index) => {
         const res = await accuweather.getCityWeatherForcast(
           item.city,
-          item.countryCode
+          item.countryCode,
         );
         this.cities[index].weather = res;
       });
     },
 
-    async fetchFlightDetails() {
+    fetchFlightDetails() {
       if(!this.sourcecity) {
         this.errors = 'Source City is required.';
       } else if(this.errors){
         this.errors = '';
       }
       this.cities.forEach(async (item, index) => {
-        const flightsRes = await checkFlights.checkFlights(
-          item.airportCode,
-          this.sourcecity
-        );
-        this.cities[index].flights = flightsRes.data;
-        this.cities[index].flights["currency"] = flightsRes.currency;
-        this.sourcecity = '';
+        if(item.airportCode !== this.sourcecity) {
+            const flightsRes = await checkFlights.checkFlights(
+            item.airportCode,
+            this.sourcecity
+          );
+          this.cities[index].flights = flightsRes.data;
+          this.cities[index].flights["currency"] = flightsRes.currency;
+          this.cities[index]["error"] = false;
+          this.sourcecity = '';
+        } else {
+          this.cities[index]["error"] = true;
+        }
       });
+    },
+    chooseTheCity(chosenCity) {
+      if(chosenCity) {
+        this.chosenCity = chosenCity;
+        this.citySelectionDivShown = true;
+      }
     }
   }
 };
 </script>
+<style>
+
+.selected-city {
+  justify-content: center;
+  font-size: 25px;
+}
+</style>

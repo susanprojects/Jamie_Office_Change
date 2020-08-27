@@ -83,28 +83,28 @@ describe("CityInfoCard.vue", () => {
     });
     it('should display temperature details', async () => {
         await Vue.nextTick();
-        expect(wrapper.find('#minimumTemperature').text()).toBe("Min: 21.1°");
-        expect(wrapper.find('#maximumTemperature').text()).toBe("Max: 32.2°");
+        expect(wrapper.find('#minimum-temperature').text()).toBe("Min: 21.1°");
+        expect(wrapper.find('#maximum-temperature').text()).toBe("Max: 32.2°");
     });
     it('should display day weather details', async () => {
         await Vue.nextTick();
-        expect(wrapper.find('#weatherDayWindSpeed').text()).toBe("Wind : 18.8");
-        expect(wrapper.find('#weatherDayRainSpeed').text()).toBe("Rain : 23.1/");
-        expect(wrapper.find('#weatherDaySnow').text()).toBe("Snow : 10.1/");
+        expect(wrapper.find('#weather-day-wind-speed').text()).toBe("Wind : 18.8");
+        expect(wrapper.find('#weather-day-rain-speed').text()).toBe("Rain : 23.1/");
+        expect(wrapper.find('#weather-day-snow').text()).toBe("Snow : 10.1/");
     });
     it('should display night weather details', async () => {
         await Vue.nextTick();
-        expect(wrapper.find('#weatherNightWindSpeed').text()).toBe("Wind : 15");
-        expect(wrapper.find('#weatherNightRainSpeed').text()).toBe("Rain : 56/");
-        expect(wrapper.find('#weatherNightSnow').text()).toBe("Snow : 10.2/");
+        expect(wrapper.find('#weather-night-wind-speed').text()).toBe("Wind : 15");
+        expect(wrapper.find('#weather-night-rain-speed').text()).toBe("Rain : 56/");
+        expect(wrapper.find('#weather-night-snow').text()).toBe("Snow : 10.2/");
     });
     it('should display flight details', async () => {
         await Vue.nextTick();
-        expect(wrapper.find('#flightSourceDestination').text()).toBe("India - Amsterdam");
-        expect(wrapper.find('#flightPrice').text()).toBe("Price : EUR 490");
-        expect(wrapper.find('#flightDistance').text()).toBe("Distance : 6584.75");
-        expect(wrapper.find('#flightDuration').text()).toBe("Duration : 43h 20m");
-        expect(wrapper.find('#flightStops').text()).toBe("Stops : 0");
-        expect(wrapper.find('#flightSeats').text()).toBe("Seats available : 7");
+        expect(wrapper.find('#flight-source-destination').text()).toBe("India - Amsterdam");
+        expect(wrapper.find('#flight-price').text()).toBe("Price : EUR 490");
+        expect(wrapper.find('#flight-distance').text()).toBe("Distance : 6584.75");
+        expect(wrapper.find('#flight-duration').text()).toBe("Duration : 43h 20m");
+        expect(wrapper.find('#flight-stops').text()).toBe("Stops : 0");
+        expect(wrapper.find('#flight-seats').text()).toBe("Seats available : 7");
     });
 })
